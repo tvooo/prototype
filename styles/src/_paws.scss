@@ -1,0 +1,63 @@
+
+$max-width: 90% !default;
+$columns: 12 !default;
+$gutter: 4% !default;
+
+$query-small: 'screen and (max-width: 480px)' !default;
+$query-medium: 'screen and (max-width: 768px)' !default;
+$query-large: 'screen and (min-width: 769px)' !default;
+
+%max-width {
+    max-width: $max-width;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@function column-width($n: 1) {
+    $one: (100 - ($columns) * $gutter) / $columns;
+    @return $one * $n + $gutter * ($n - 1);
+}
+
+/* Mixins for span sizes */
+@mixin span($n: 1) {
+    float: left;
+    width: column-width($n);
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+}
+
+@mixin box {
+    overflow: auto;
+    @extend %max-width;
+}
+
+@mixin box-full {
+    overflow: auto;
+    width: 100%;
+}
+
+/* Actual classes, if needed */
+@mixin paws-generate {
+    @for $n from 1 through $columns {
+        .span-#{$n} {
+            @include span($n);
+        }
+    }
+    .span-full {
+        @include span($columns);
+    }
+}
+
+.box {
+    @include box;
+}
+
+.box-full {
+    @include box-full;
+}
+
+@mixin respond-to($query) {
+    @media #{$query} {
+        @content;
+    }
+}
