@@ -1,0 +1,27 @@
+.m-list-articles {
+    list-style: none;
+    @include span(12);
+    li {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 0;
+        $padding: .4em;
+        font-size: 1.61em;
+
+        padding-top: $padding;
+        padding-bottom: $padding;
+
+        border-bottom: 1px $color-lightgrey solid;
+        &:first-of-type {
+            border-top: 1px $color-lightgrey solid;
+        }
+
+        a {
+            border: 0;
+        }
+    }
+}
+
+.m-list {
+    @include box;
+}

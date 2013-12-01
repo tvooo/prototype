@@ -1,0 +1,36 @@
+.m-header {
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.m-header-title {
+    text-align: center;
+    font-family: $ff-title;
+    text-transform: uppercase;
+
+
+    .f--normal {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+
+    .f--large {
+        display: inline-block;
+        vertical-align: top;
+
+        font-size: 2em;
+        line-height: 1em;
+        margin-top: .2em;
+        margin-bottom: 0;
+
+        margin-left: -0.063492063em; // 8 / 126
+        margin-right: -0.079365079em; // 10 / 126
+    }
+}
+
+.m-header-subtitle {
+    text-align: center;
+    visibility: hidden;
+}

@@ -1,8 +1,26 @@
-@import "_reset.scss";
-@import "_fonts.scss";
-@import "_paws.scss";
-@import "_mixins.scss";
-@import "_type.scss";
+@import "compass/css3";
+
+@import "vendor/prism";
+
+@import "_reset";
+@import "_fonts";
+@import "_colors";
+$max-width: 800px;
+@import "_paws";
+@import "_type";
+@import "_mixins";
+
+@import "_typography";
 
 // Modules
-@import "_dialog.scss";
+@import "_dialog";
+@import "_header";
+@import "_footer";
+@import "_article";
+@import "_list-articles";
+
+@import "responsive";
+
+body {
+    background: white;
+}

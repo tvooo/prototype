@@ -1,0 +1,172 @@
+$ff-title: "Amatic SC", sans-serif;
+$ff-serif: "Calluna Regular", "calluna", "Merriweather", Georgia, serif;
+$ff-monospace: "Source Code Pro", monospace;
+
+@include type-boilerplate;
+
+html {
+    font-size: 18px;
+}
+
+@media print {
+    html {
+        font-size: 12px;
+    }
+}
+
+
+
+body {
+    font-size: 100%;
+    color: $color-text;
+    font-family: $ff-serif;
+}
+
+$headings: h1 5em 1.1em, h2 1.91em 1.61em, h3 1.618em 1.61em, h4 1.18em 1.61em;
+$headings: h1 3.4em 1.1em, h2 1.91em 1.61em, h3 1.618em 1.61em, h4 1.18em 1.61em;
+$headings:
+    h1 2.8em 1.1em,
+    h2 2em 1.61em,
+    h3 1.75em 1.61em,
+    h4 1.25em 1.61em,
+    ".m-header-title" 3.5em 1.61em;
+@each $heading in $headings {
+     #{nth($heading, 1)} {
+        font-size: nth($heading, 2);
+        line-height: nth($heading, 3);
+    }
+}
+
+p, li {
+    font-size: 1em;
+    line-height: 1.72em;
+
+    text-align: justify;
+
+
+
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    @include font-feature-settings("onum" 1, "pnum" 1);
+}
+
+table {
+    @include font-feature-settings("lnum" 1, "tnum" 1);
+}
+
+
+
+
+
+li {
+    margin-bottom: 0.4em;
+}
+
+h2, h3, h4, p, ul, ol {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+h3, h4, p, ul, ol {
+    margin-bottom: 2em;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+h1 {
+    font-weight: 400;
+    margin-bottom: .5em;
+}
+
+h3, h4 {
+    margin-bottom: .5em;
+}
+
+ul, ol {
+    @include type-list-hanging;
+}
+
+/* Special Blockquotes */
+
+$mark-top: -.3em;
+$mark-left: -.05em;
+$mark-left: -.02em;
+$mark-top: -.4em;
+$mark-size: 10em;
+$mark-symbol: "«"; // "“"
+$mark-symbol: "“";
+$mark-font: "Times New Roman", "Merriweather", Georgia, serif;
+
+%mark {
+        display: block;
+        font-size: $mark-size;
+        content: $mark-symbol;
+        position: absolute;
+        z-index: 10;
+        left: $mark-left;
+        top: $mark-top;
+        font-family: $mark-font;
+    }
+
+/*
+blockquote {
+
+
+    position: relative;
+    overflow: visible;
+    .wrapper {
+        background: $color-quote-bg;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        position: relative;
+        overflow: auto;
+        &:before {
+            @extend %mark;
+            color: white;
+        }
+    }
+    &:before {
+        @extend %mark;
+        color: $color-quote-bg;
+    }
+    p {
+        margin-bottom: 0;
+
+    }
+}*/
+
+code {
+    @extend %type-code;
+
+    font-family: $ff-monospace;
+    background: $color-quote-bg;
+    display: inline-block;
+}
+
+pre {
+    @extend %type-code;
+
+    font-family: $ff-monospace;
+    background: $color-quote-bg;
+    display: block;
+
+    padding: 2em;
+    //padding-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+a {
+    display: inline;
+    font-weight: bold;
+    color: $color-text;
+    text-decoration: none;
+    border-bottom: 1px $color-text solid;
+    @include transition(all .2s ease-in);
+
+    &:hover {
+        color: $color-link--hover;
+        border-color: $color-link--hover;
+    }
+}

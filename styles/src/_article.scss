@@ -1,0 +1,31 @@
+.m-article {
+    @include box;
+    .m-article-title {
+        @include span(12);
+        text-align: left;
+        color: $color-link;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .m-article-content {
+        //@include box;
+        .m-article-marginwrapper {
+            @include span(12);
+            &:hover {
+                a {
+                    color: $color-link;
+                    border-color: $color-link;
+                    &:hover {
+                        color: $color-link--hover;
+                        border-color: $color-link--hover;
+                    }
+                }
+            }
+        }
+
+        .p-first {
+            font-size: 1.4em;
+            font-style: italic;
+        }
+    }
+}

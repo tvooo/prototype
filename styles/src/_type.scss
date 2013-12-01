@@ -1,24 +1,137 @@
-html {
-    font-size: 16px;
+/*
+ *
+ * type.scss
+ *
+ * A SCSS boilerplate for microtypography.
+ *
+ * Tim von Oldenburg <tim@tvooo.de>
+ *
+ */
+
+/* --- MIXINS --- */
+
+/*
+    Hyphenation
+    http://caniuse.com/#feat=css-hyphens
+*/
+@mixin hypens($value) {
+    -webkit-hyphens: $value;
+    -moz-hyphens: $value;
+    -ms-hyphens: $value;
+    hyphens: $value;
 }
 
-body {
-    font-size: 100%;
+/*
+    OpenType Features
+    http://caniuse.com/#feat=font-feature
+*/
+@mixin font-feature-settings($values...) {
+    -webkit-font-feature-settings: $values;
+    -moz-font-feature-settings: $values;
+    font-feature-settings: $values;
 }
 
-$headings: h1 5em, h2 1.91em, h3 1.618em, h4 1.18em;
-@each $heading in $headings {
-     #{nth($heading, 1)} {
-        font-size: nth($heading, 2);
-        line-height: 1.61em;
+@mixin type-quotemark($mark) {
+    content: $mark;
+    display: inline;
+}
+
+/* --- PLACEHOLDER SELECTORS --- */
+
+// Capitals to small caps
+%type-c2sc {
+    @include font-feature-settings("c2sc" 1);
+}
+
+%type-swsh {
+    font-feature-settings: "swsh" 1;
+}
+
+%type-ligatures-common {
+
+}
+
+@mixin type-list-hanging() {
+    //margin-left: 0;
+    padding-left: 0;
+
+    list-style-position: outside;
+}
+
+@mixin type-list-indented() {
+    //margin-left: 0;
+    padding-left: 1em;
+
+    list-style-position: outside;
+}
+
+@mixin type-quotemarks-both() {
+    p {
+        &:before {
+            @include type-quotemark("“");
+        }
+        &:after {
+            @include type-quotemark("”");
+        }
+    }
+}
+@mixin type-quotemarks-hanging() {
+    p {
+        position: relative;
+    }
+    p:first-of-type {
+        &:before {
+            @include type-quotemark("“");
+            display: inline-block;
+            position: absolute;
+            left: -1em;
+        }
+    }
+    p:last-of-type {
+        &:after {
+            @include type-quotemark("”");
+            display: inline-block;
+            position: absolute;
+            right: -1em;
+            //left: 100%;
+        }
     }
 }
 
-p, li {
-    font-size: 1em;
-    line-height: 1.61em;
+%type-code {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
 }
 
-.scribble {
-    font-family: redacted_scriptregular;
+/* --- CLASS SELECTOR GENERATOR -- */
+
+@mixin type-generate() {
+    .type-c2sc {
+        @extend %type-c2sc;
+    }
+
+    .type-swsh {
+        @extend %type-swsh;
+    }
+}
+
+@mixin type-boilerplate() {
+    h1, h2, h3, h4 {
+        text-rendering:optimizeLegibility;
+        @include font-feature-settings("liga", "dlig");
+    }
+    ul, ol {
+        @extend %type-list-hanging;
+    }
+    blockquote {
+        @include type-quotemarks-hanging;
+    }
+    acronym {
+        text-transform: uppercase;
+        @extend %type-c2sc;
+    }
 }

@@ -4,3 +4,4 @@ node_modules
 .sass-cache
 fonts/
 tmp/
+.DS_Store

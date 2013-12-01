@@ -17,23 +17,46 @@ module.exports = function ( grunt ) {
           css : {
               files: ['styles/src/**/*.scss'],
               tasks: ['css']
+          },
+          html: {
+            files: ['index.html'],
+            tasks: []
+          },
+          js: {
+            files: ['js/src/**/*.js'],
+            tasks: ['js']
+          },
+          options: {
+            livereload: true
           }
+      },
+      concat: {
+        options: {
+          separator: ';',
+        },
+        js: {
+          src: ['js/src/**/*.js'],
+          dest: 'js/script.js',
+        }
       },
       connect: {
         server: {
           options: {
             port: 9001,
             base: '.',
-            keepalive: true
+            keepalive: false,
+            open: true
           }
         }
       }
     });
 
     grunt.registerTask('css', ['compass:rapid'] );
-    grunt.registerTask('default', ['css']);
+    grunt.registerTask('js', ['concat:js']);
+    grunt.registerTask('default', ['connect', 'watch']);
 
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 };

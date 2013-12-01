@@ -1,5 +1,130 @@
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/* line 10, src/vendor/prism.scss */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  text-shadow: 0 1px white;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* line 30, src/vendor/prism.scss */
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+}
+
+/* line 36, src/vendor/prism.scss */
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+}
+
+@media print {
+  /* line 43, src/vendor/prism.scss */
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+/* Code blocks */
+/* line 49, src/vendor/prism.scss */
+pre[class*="language-"] {
+  overflow: auto;
+}
+
+/* Inline code */
+/* line 61, src/vendor/prism.scss */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+/* line 69, src/vendor/prism.scss */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+/* line 73, src/vendor/prism.scss */
+.token.punctuation {
+  color: #999;
+}
+
+/* line 77, src/vendor/prism.scss */
+.namespace {
+  opacity: .7;
+}
+
+/* line 86, src/vendor/prism.scss */
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #905;
+}
+
+/* line 93, src/vendor/prism.scss */
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+  color: #690;
+}
+
+/* line 102, src/vendor/prism.scss */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* line 109, src/vendor/prism.scss */
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+/* line 115, src/vendor/prism.scss */
+.token.regex,
+.token.important {
+  color: #e90;
+}
+
+/* line 119, src/vendor/prism.scss */
+.token.important {
+  font-weight: bold;
+}
+
+/* line 123, src/vendor/prism.scss */
+.token.entity {
+  cursor: help;
+}
+
 /* line 1, src/_reset.scss */
-h1, h2, h3, h4, div, p, ul, ol, li, blockquote, section, header, footer, article {
+h1, h2, h3, h4, div, p, ul, ol, li, blockquote, section, header, footer, article, body, html {
   margin: 0;
   padding: 0;
   border: 0;
@@ -39,8 +164,8 @@ h1, h2, h3, h4, div, p, ul, ol, li, blockquote, section, header, footer, article
 }
 
 /* line 10, src/_paws.scss */
-.box {
-  max-width: 90%;
+.box, .m-article, .m-list {
+  max-width: 800px;
   margin: 0 auto;
   width: 100%;
 }
@@ -58,49 +183,241 @@ h1, h2, h3, h4, div, p, ul, ol, li, blockquote, section, header, footer, article
   width: 100%;
 }
 
-/* line 1, src/_type.scss */
-html {
-  font-size: 16px;
+/*
+ *
+ * type.scss
+ *
+ * A SCSS boilerplate for microtypography.
+ *
+ * Tim von Oldenburg <tim@tvooo.de>
+ *
+ */
+/* --- MIXINS --- */
+/*
+    Hyphenation
+    http://caniuse.com/#feat=css-hyphens
+*/
+/*
+    OpenType Features
+    http://caniuse.com/#feat=font-feature
+*/
+/* --- PLACEHOLDER SELECTORS --- */
+/* line 42, src/_type.scss */
+acronym {
+  -webkit-font-feature-settings: "c2sc" 1;
+  -moz-font-feature-settings: "c2sc" 1;
+  font-feature-settings: "c2sc" 1;
 }
 
-/* line 5, src/_type.scss */
+/* line 101, src/_type.scss */
+code, pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+}
+
+/* --- CLASS SELECTOR GENERATOR -- */
+/* line 123, src/_type.scss */
+h1, h2, h3, h4 {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+/* line 79, src/_type.scss */
+blockquote p {
+  position: relative;
+}
+/* line 83, src/_type.scss */
+blockquote p:first-of-type:before {
+  content: "“";
+  display: inline;
+  display: inline-block;
+  position: absolute;
+  left: -1em;
+}
+/* line 91, src/_type.scss */
+blockquote p:last-of-type:after {
+  content: "”";
+  display: inline;
+  display: inline-block;
+  position: absolute;
+  right: -1em;
+}
+
+/* line 133, src/_type.scss */
+acronym {
+  text-transform: uppercase;
+}
+
+/* line 7, src/_typography.scss */
+html {
+  font-size: 18px;
+}
+
+@media print {
+  /* line 12, src/_typography.scss */
+  html {
+    font-size: 12px;
+  }
+}
+/* line 19, src/_typography.scss */
 body {
   font-size: 100%;
+  color: #444444;
+  font-family: "Calluna Regular", "calluna", "Merriweather", Georgia, serif;
 }
 
-/* line 11, src/_type.scss */
+/* line 34, src/_typography.scss */
 h1 {
-  font-size: 5em;
-  line-height: 1.61em;
+  font-size: 2.8em;
+  line-height: 1.1em;
 }
 
-/* line 11, src/_type.scss */
+/* line 34, src/_typography.scss */
 h2 {
-  font-size: 1.91em;
+  font-size: 2em;
   line-height: 1.61em;
 }
 
-/* line 11, src/_type.scss */
+/* line 34, src/_typography.scss */
 h3 {
-  font-size: 1.618em;
+  font-size: 1.75em;
   line-height: 1.61em;
 }
 
-/* line 11, src/_type.scss */
+/* line 34, src/_typography.scss */
 h4 {
-  font-size: 1.18em;
+  font-size: 1.25em;
   line-height: 1.61em;
 }
 
-/* line 17, src/_type.scss */
+/* line 34, src/_typography.scss */
+.m-header-title {
+  font-size: 3.5em;
+  line-height: 1.61em;
+}
+
+/* line 40, src/_typography.scss */
 p, li {
   font-size: 1em;
-  line-height: 1.61em;
+  line-height: 1.72em;
+  text-align: justify;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  -webkit-font-feature-settings: "onum" 1, "pnum" 1;
+  -moz-font-feature-settings: "onum" 1, "pnum" 1;
+  font-feature-settings: "onum" 1, "pnum" 1;
 }
 
-/* line 22, src/_type.scss */
-.scribble {
-  font-family: redacted_scriptregular;
+/* line 52, src/_typography.scss */
+table {
+  -webkit-font-feature-settings: "lnum" 1, "tnum" 1;
+  -moz-font-feature-settings: "lnum" 1, "tnum" 1;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+
+/* line 60, src/_typography.scss */
+li {
+  margin-bottom: 0.4em;
+}
+
+/* line 64, src/_typography.scss */
+h2, h3, h4, p, ul, ol {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+/* line 69, src/_typography.scss */
+h3, h4, p, ul, ol {
+  margin-bottom: 2em;
+}
+
+/* line 73, src/_typography.scss */
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+/* line 77, src/_typography.scss */
+h1 {
+  font-weight: 400;
+  margin-bottom: .5em;
+}
+
+/* line 82, src/_typography.scss */
+h3, h4 {
+  margin-bottom: .5em;
+}
+
+/* line 86, src/_typography.scss */
+ul, ol {
+  padding-left: 0;
+  list-style-position: outside;
+}
+
+/* Special Blockquotes */
+/*
+blockquote {
+
+
+    position: relative;
+    overflow: visible;
+    .wrapper {
+        background: $color-quote-bg;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+        position: relative;
+        overflow: auto;
+        &:before {
+            @extend %mark;
+            color: white;
+        }
+    }
+    &:before {
+        @extend %mark;
+        color: $color-quote-bg;
+    }
+    p {
+        margin-bottom: 0;
+
+    }
+}*/
+/* line 140, src/_typography.scss */
+code {
+  font-family: "Source Code Pro", monospace;
+  background: #f0f0f0;
+  display: inline-block;
+}
+
+/* line 148, src/_typography.scss */
+pre {
+  font-family: "Source Code Pro", monospace;
+  background: #f0f0f0;
+  display: block;
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
+/* line 160, src/_typography.scss */
+a {
+  display: inline;
+  font-weight: bold;
+  color: #444444;
+  text-decoration: none;
+  border-bottom: 1px #444444 solid;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+/* line 168, src/_typography.scss */
+a:hover {
+  color: #d98c8c;
+  border-color: #d98c8c;
 }
 
 /* line 5, src/_dialog.scss */
@@ -125,4 +442,167 @@ p, li {
   background: rgba(0, 0, 0, 0.4);
   display: none;
   z-index: 999;
+}
+
+/* line 1, src/_header.scss */
+.m-header {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+/* line 6, src/_header.scss */
+.m-header-title {
+  text-align: center;
+  font-family: "Amatic SC", sans-serif;
+  text-transform: uppercase;
+}
+/* line 12, src/_header.scss */
+.m-header-title .f--normal {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+/* line 19, src/_header.scss */
+.m-header-title .f--large {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 2em;
+  line-height: 1em;
+  margin-top: .2em;
+  margin-bottom: 0;
+  margin-left: -0.063492063em;
+  margin-right: -0.079365079em;
+}
+
+/* line 33, src/_header.scss */
+.m-header-subtitle {
+  text-align: center;
+  visibility: hidden;
+}
+
+/* line 1, src/_footer.scss */
+.m-footer {
+  padding: 20px;
+  background: #444444;
+}
+
+/* line 1, src/_article.scss */
+.m-article {
+  overflow: auto;
+}
+/* line 3, src/_article.scss */
+.m-article .m-article-title {
+  float: left;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: left;
+  color: #cc6666;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+/* line 12, src/_article.scss */
+.m-article .m-article-content .m-article-marginwrapper {
+  float: left;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+/* line 15, src/_article.scss */
+.m-article .m-article-content .m-article-marginwrapper:hover a {
+  color: #cc6666;
+  border-color: #cc6666;
+}
+/* line 18, src/_article.scss */
+.m-article .m-article-content .m-article-marginwrapper:hover a:hover {
+  color: #d98c8c;
+  border-color: #d98c8c;
+}
+/* line 26, src/_article.scss */
+.m-article .m-article-content .p-first {
+  font-size: 1.4em;
+  font-style: italic;
+}
+
+/* line 1, src/_list-articles.scss */
+.m-list-articles {
+  list-style: none;
+  float: left;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+/* line 4, src/_list-articles.scss */
+.m-list-articles li {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 0;
+  font-size: 1.61em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px #dddddd solid;
+}
+/* line 15, src/_list-articles.scss */
+.m-list-articles li:first-of-type {
+  border-top: 1px #dddddd solid;
+}
+/* line 19, src/_list-articles.scss */
+.m-list-articles li a {
+  border: 0;
+}
+
+/* line 25, src/_list-articles.scss */
+.m-list {
+  overflow: auto;
+}
+
+@media screen and (max-width: 480px) {
+  /* line 2, src/_responsive.scss */
+  html {
+    font-size: 12px;
+  }
+
+  /* line 6, src/_responsive.scss */
+  h2, h3, h4, p, ul, ol {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  /* line 11, src/_responsive.scss */
+  ul, ol {
+    padding-left: 1em;
+    list-style-position: outside;
+  }
+
+  /* line 15, src/_responsive.scss */
+  .m-header-title {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 21, src/_responsive.scss */
+  html {
+    font-size: 16px;
+  }
+
+  /* line 25, src/_responsive.scss */
+  p, li {
+    text-align: left;
+  }
+
+  /* line 29, src/_responsive.scss */
+  .m-header {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  /* line 34, src/_responsive.scss */
+  .m-header-title {
+    font-size: 2.5em;
+  }
+}
+/* line 24, src/style.scss */
+body {
+  background: white;
 }
