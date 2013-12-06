@@ -41,7 +41,7 @@ p, li {
     font-size: 1em;
     line-height: 1.72em;
 
-    text-align: justify;
+    //text-align: justify;
 
 
 
@@ -59,11 +59,6 @@ table {
 
 li {
     margin-bottom: 0.4em;
-}
-
-h2, h3, h4, p, ul, ol {
-    margin-left: 2rem;
-    margin-right: 2rem;
 }
 
 h3, h4, p, ul, ol {
@@ -109,10 +104,8 @@ $mark-font: "Times New Roman", "Merriweather", Georgia, serif;
         font-family: $mark-font;
     }
 
-/*
-blockquote {
-
-
+// Fancy quotes, need extended markup
+/*blockquote {
     position: relative;
     overflow: visible;
     .wrapper {
@@ -136,6 +129,21 @@ blockquote {
 
     }
 }*/
+
+blockquote {
+    position: relative;
+
+        background: $color-quote-bg;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+
+
+
+    p {
+        margin-bottom: 0;
+    }
+}
 
 code {
     @extend %type-code;
@@ -163,7 +171,7 @@ a {
     color: $color-text;
     text-decoration: none;
     border-bottom: 1px $color-text solid;
-    @include transition(all .2s ease-in);
+    @include transition(color .2s ease-out, border-color .2s ease-out);
 
     &:hover {
         color: $color-link--hover;

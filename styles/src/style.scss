@@ -13,11 +13,12 @@ $max-width: 800px;
 @import "_typography";
 
 // Modules
-@import "_dialog";
-@import "_header";
-@import "_footer";
-@import "_article";
-@import "_list-articles";
+@import "dialog";
+@import "header";
+@import "footer";
+@import "article";
+@import "list-articles";
+@import "tvooo";
 
 @import "responsive";
 

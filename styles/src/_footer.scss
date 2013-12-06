@@ -1,4 +1,12 @@
 .m-footer {
-    padding: 20px;
-    background: $color-footer-bg;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    //padding: 20px;
+    font-size: 0.8em;
+    text-align: center;
+
+    .m-footer-logo {
+        text-decoration: none;
+        border: 0;
+    }
 }

@@ -5,9 +5,8 @@ module.exports = function ( grunt ) {
         rapid: {
           options: {
             sassDir: 'styles/src',
-            cssDir: 'styles',
+            cssDir: 'www/styles',
             outputStyle: 'expanded',
-            //imagesDir: '../client/assets/images',
             relativeAssets: true
           }
         }
@@ -19,8 +18,8 @@ module.exports = function ( grunt ) {
               tasks: ['css']
           },
           html: {
-            files: ['index.html'],
-            tasks: []
+            files: ['templates/**/*.html', 'content/**/*.md'],
+            tasks: ['bear:dev']
           },
           js: {
             files: ['js/src/**/*.js'],
@@ -36,17 +35,50 @@ module.exports = function ( grunt ) {
         },
         js: {
           src: ['js/src/**/*.js'],
-          dest: 'js/script.js',
+          dest: 'www/js/script.js',
         }
       },
       connect: {
         server: {
           options: {
             port: 9001,
-            base: '.',
+            base: 'www/',
             keepalive: false,
             open: true
           }
+        }
+      },
+      bear: {
+        dev: {
+          options: {
+            domain: "localhost:9001"
+          }
+        },
+        dist: {
+          options: {
+            domain: "//www.protoandtype.com"
+          }
+        },
+        options: {
+          domain: "//127.0.0.1:9001/",
+          basePath: "/",
+          templates: "templates/",
+          content: "content/",
+          www: "www/",
+          navigation: [
+            {
+              title: "Startseite",
+              url: " "
+            },
+            {
+              title: "About",
+              url: "about"
+            },
+            {
+              title: "Blog",
+              url: "articles"
+            }
+          ]
         }
       }
     });
@@ -59,4 +91,5 @@ module.exports = function ( grunt ) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-bear');
 };

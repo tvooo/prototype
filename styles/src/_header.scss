@@ -8,6 +8,14 @@
     font-family: $ff-title;
     text-transform: uppercase;
 
+    a {
+        border: none;
+        text-decoration: none;
+        @include transition(none);
+        &:hover {
+            color: $color-text;
+        }
+    }
 
     .f--normal {
         display: inline-block;

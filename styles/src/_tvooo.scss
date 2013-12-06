@@ -1,0 +1,75 @@
+/* tvooo.scss */
+
+/*
+
+Simple transform mixin
+
+http://caniuse.com/#feat=transforms2d
+
+- IE <= 11 does not support transforms on SVG element, can as well be left out
+- Mozilla does not need a prefix
+- Opera uses -webkit prefix
+
+*/
+@mixin svg-transform( $properties... ) {
+    -webkit-transform: $properties;
+    transform: $properties;
+}
+
+$width: 132px;
+$height: 33px;
+
+#tvooo-logo {
+    overflow: hidden;
+
+    width: $width;
+    height: $height;
+
+    circle, path {
+        stroke-width: 3;
+        fill: none;
+        stroke: $color-lightgrey;
+    }
+
+    path {
+        stroke-linecap: round;
+    }
+
+    .circle-moving {
+        -webkit-transition: stroke-opacity 0.4s ease-out,
+                            -webkit-transform 0.4s ease-out;
+        transition: stroke-opacity 0.4s ease-out,
+                    transform 0.4s ease-out;
+        stroke-opacity: 0;
+    }
+
+    &:hover {
+        .circle-moving-1, .circle-moving-2 {
+            stroke-opacity: 1;
+        }
+        .circle-moving-1 {
+            @include svg-transform( translate(26px, 0px) );
+        }
+        .circle-moving-2 {
+            @include svg-transform( translate(52px, 0px) );
+        }
+    }
+}
+
+#tvooo-logo-fallback {
+    width: $width;
+    height: $height;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAAAhCAYAAACYyvasAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAToSURBVGiB7ZpriJRVGMd/4yWzspsQRV8qNSWSol01si/B/AkK2UySKNw0DdH6Epj6pQt0wQwi8BJRYm4XWFJCun34BxolmbtaplluFz8EGUVIpGG6uX14zzBnpnl333fGbdeYPxzmvM95znOe+c+5Pc87hb6+PrJA0gJgObDG9vpMnf7nKOQg7whwIfAHcLHt3sF07EzAiBy6Y8PnOGDUIPhyxiEPeU1UoUleA2iS1wCa5DWAJnkNoEleA2iSF0FSIY9+oVgsLgGeBi4aBH96gT3AjlKx/fMgjIOky4F2YLPtbzPoF4AbgFZgWihTgB5gVyjdwB7bNSOJQrFYPAhcfVq+QTa8Byw63SRKOgRcAey23TqA7pXABuCWDKa3AQttH6puGAE8DxzP7W39uB3YL+mu02VQ0ngS4qCfiSCpIGkpsI9sxBH09klaWr2s88S2x4Ex4XGs7QEJl3QBcBNwc1TiffYNYIHtk5mcSB9nBrAzPO61fX0NnQKwFZgViU8CW0iWaBdwEJhMeSnPofydAd4B2krLeFBjVNu/Ax+EgqSZQAdwVVC5l2TWL2pwqElR/fsUnSVUEvcVMM/251V6vwKfBH9XAa8B14W2WcCDwFr4j09b2zuCIxsi8UJJyxs0Hc+0/dWNYY9bHYk6gJYaxFXA9j5gOvByJH5W0kQYgquK7aO2FwGvROJVku5swGxLVO+OG8Jy3QCcG0QHgMW2/8ro7wngIWBvEJ0DvCppxFDe85YCH4V6Adgo6bK8RqIrRwndVSo3Uj4ceoH2LPt1jEBgO3AiiGYCM4aMvHBIzAF+CKLzgRfqMDUp9AX4yfbhqvb42tJpe3cdY2D7S6AztjukEYbt34D5QOnInyvp1pxmUpdsjfZdOW1Xoyu2O+Thme2PqTxA1kkam6ZfAwORF8+8umZdSv+hnXkRlgO/hPoE4OEcfYtRvYKcsB/G15iDdXlXRk9UnzQsyLN9BFgZiVZKumSgfpKmUr6DHaV8AJXs9lH5hSc36Grcv2dYkBewifJ1YBzwRIY+90X1LbaP1dCJl3K/MW8GVGwBw4Y826eAZZHoAUlT0vQljQTuiUQdKarxUp5Rv4f/6t89bMgDsP0h8H54HEVlVFANAaV74Y/A9hS9mLy5kqbX45ukViBOZuSaefFL7vH1OJARjwB/h/osSWnZj/ao/nqYubWwkyStBDAS2CTp7DwOSToL2Eg5F7AD+CwPeZ9G9dvyDJ4Htg9QeXVZK+m8WCdEIndEorQlWzo0FgKl/XAK8FJWAiWNAdYB1wbRn8B826fykPduVF8m6dIcffPiMZLTE+AaoKOUSwt73ZuU/8HQZfub/oyFRGacfGgH9oSlmApJLSTLPs76rLD9HeTL500AvgZGB9FhkuB+Y60sa6OQNI/KGdVJMiMXk4R1kCzvou3tGewVgLeBtkjcG2RdJCT1kCRTW0jyebOpTNttBWaX8nmZyQsOtAFvUSYQktDqSduPZzaUfbznqDyBq/Go7ady2CuQ5PVWU86yZMExkpn7Yvw+I9dpa3srcDflaACSjEijycw0rAA2p7R1As/kMWa7L/w9birlQ2QgbAOm2l5f/SIo18wrQdJokncR9wMTSX6RNbkNZR9vGskv30aydFbb7uq/14A2CyRJ1JZQWkkiiB6Si/Xu8PlF2tuzfwCSQZCjoiyVvwAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+
+    display: none;
+}
+
+.no-svg-logo {
+    #tvooo-logo-fallback {
+        display: block;
+    }
+    #tvooo-logo {
+        display: none;
+    }
+}

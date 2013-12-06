@@ -1,0 +1,7 @@
+    <section class="m-list">
+        <ul class="m-list-articles">
+            {{#each pages.subpages}}<li>
+                <a href="{{url}}" class="{{#if active}}active{{/if}}"><span class="date">{{meta.Date}}</span><span class="title">{{meta.Title}}</span></a>
+            </li>{{/each}}
+        </ul>
+    </section>

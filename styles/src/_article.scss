@@ -1,9 +1,12 @@
 .m-article {
     @include box;
-    .m-article-title {
+    .m-article-header {
         @include span(12);
+    }
+    .m-article-title {
         text-align: left;
-        color: $color-link;
+        color: $color-text;
+        font-weight: 700;
         margin-left: 2rem;
         margin-right: 2rem;
     }
@@ -28,4 +31,14 @@
             font-style: italic;
         }
     }
+
+    img {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
+    h2, h3, h4, p, ul, ol {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
 }

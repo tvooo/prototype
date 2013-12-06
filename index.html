@@ -16,12 +16,15 @@
         <aside class="m-header-subtitle">A blog</aside>
     </header>
     <article class="m-article">
-        <h1 class="m-article-title">Oh, efficient rem units in <acronym title="Cascading Stylesheets" class="c2sc">CSS</acronym> are for!</h1>
+        <header class="m-article-header">
+            <h1 class="m-article-title">Oh, efficient rem units in <acronym title="Cascading Stylesheets" class="c2sc">CSS</acronym> are for!</h1>
+        </header>
         <section class="m-article-content">
             <div class="m-article-marginwrapper">
                 <p class="p-first">A while ago, <a href="/articles/web-fonts/">I wrote an article</a> on the problems we had with typography on the web and how web fonts and next-generation CSS begin to solve them. Today I want to give an overview on techniques and services that allow us to create beautiful web typography already now.</p>
 <h2>Web fonts</h2>
 <p>Using the CSS <code>@font-face</code> directive, we can easily embed font files of different formats into our websites. If you host your own font files, you can have a look at <a href="http://font-face.com/">this website</a> to see how it works. Interesting side fact: the WOFF format, which serves as a container for OpenType and TrueType fonts, has recently become a <a href="http://www.w3.org/TR/2012/REC-WOFF-20121213/">W3C recommendation</a>.</p>
+<img src="image3.jpg" alt="">
 <p>However, there are many reasons for you to not host web fonts yourself, including licensing. There are paid as well as free services that offer a wide variety of font families, and there are good use cases for both of them. If, for example, you have a lot of clients and need distinct, high quality fonts for their websites, a paid service is the way to go. If, on the other hand, you are building a free Wordpress theme using a specific font, you cannot expect every user of that theme to buy the font. In that case, a free web font service is the better solution.</p>
 <h4>Free web font services</h4>
 <ul>
@@ -87,19 +90,37 @@ font: {
         </section>
     </article>
     <section class="m-list">
+        <h4>Other Articles</h4>
         <ul class="m-list-articles">
-            <li><a href="">Another Article</a></li>
-            <li><a href="">Yet Again Another Article</a></li>
-            <li><a href="">Yet Another Article</a></li>
-            <li><a href="">I have never written so much in my life</a></li>
+            <li><a href=""><span class="date">October 2013</span><span class="title">Another Article</span></a></li>
+            <li><a href=""><span class="date">August 2013</span><span class="title">Yet Again Another Article</span></a></li>
+            <li><a href=""><span class="date">Yesterday</span><span class="title">Yet Another Article</span></a></li>
+            <li><a href=""><span class="date">Yesterday</span><span class="title">I have never written so much in my life</span></a></li>
         </ul>
     </section>
     <footer class="m-footer">
-
+        <p>Proto&amp;Type is a blog by Tim von Oldenburg</p>
+        <a class="m-footer-logo" href="http://www.tvooo.de">
+            <svg xmlns="http://www.w3.org/2000/svg" height="33" version="1.1" width="132" id="tvooo-logo">
+                <circle cx="67.5" cy="21.5" r="10" />
+                <circle class="circle-moving circle-moving-1" cx="67.5" cy="21.5" r="10" />
+                <circle class="circle-moving circle-moving-2" cx="67.5" cy="21.5" r="10" />
+                <path d="m 11.5,1.5 0,25 c 0.2,4 4,4.8 5,5 m -15,-20 22,0 c 12,0.4 14,19.6 20,20 6,-0.4 8,-19.6 8,-19.6" />
+            </svg>
+            <div id="tvooo-logo-fallback"></div>
+        </a>
     </footer>
     <script src="http://localhost:35729/livereload.js"></script>
     <!--<script src="js/script.js"></script>-->
     <script src="js/src/vendor/prism.js"></script>
+    <script>
+        var div = document.createElement('div');
+        div.innerHTML = '<svg/>';
+        if ( !(div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg') {
+            var htmlElement = document.getElementsByTagName("html")[0];
+            htmlElement.className += " no-svg-logo";
+        }
+    </script>
 </body>
 </html>
 
