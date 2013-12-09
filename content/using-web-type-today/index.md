@@ -3,8 +3,9 @@ Author: Tim von Oldenburg
 Date: 2012-12-13
 Category: Article
 ImageX: letters.jpg
+Code: true
 
-A while ago, [I wrote an article](/articles/web-fonts/) on the problems we had with typography on the web and how web fonts and next-generation CSS begin to solve them. Today I want to give an overview on techniques and services that allow us to create beautiful web typography already now.
+A while ago, I wrote an article on the problems we had with typography on the web and how web fonts and next-generation CSS begin to solve them. Today I want to give an overview on techniques and services that allow us to create beautiful web typography already now.
 
 ## Web fonts
 
@@ -49,7 +50,7 @@ Also, be aware of the fact that the typeface of your choice must have those glyp
 
 Typecast is a new web application that allows you to design with type right in your browser. It features fonts from Typekit, Google, Fontdeck, Monotype (which acquired Typecast in October 2012), and others. With this wide variety of font families available, it is a powerful tool for every web designer. I can only encourage you to [give it a try][typecast].
 
-<img src="typecast.jpg" class="img-shadow-strong" alt="Typecast lets you set type in the browser">
+![Typecast lets you set type in the browser](typecast.jpg)
 
 ## Why would I want to care about typography?
 
@@ -65,7 +66,7 @@ Tommi Kaikkonen created an [Interactive Guide to Blog Typography][blog]. I reall
 
 If you speak German you should definitely give [Typefacts][typefacts] a try. There is also a quite good cheat sheet over at [Playtype][playtype]. And if you have some minutes left of the day, don't forget to check out our all-round hero [Typographer Ryan Gosling][ryan]!
 
-<img src="ryan.jpg" class="img-shadow-strong">
+![Hey Girl, ...](ryan.jpg)
 
 [drweb]: http://www.drweb.de/magazin/webtypobuch-alles-rund-um-typografie-im-web-37852/
 [typekit]: http://www.typekit.com/

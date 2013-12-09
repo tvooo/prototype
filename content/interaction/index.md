@@ -13,13 +13,13 @@ Most of the examples are&mdash;not by chance&mdash;educational. To me, they proo
 
 #### Try Git
 
-<img src="trygit.gif" alt="Try Git" class="img-shadow-strong img-top">
+![Try Git](trygit.gif)
 
 The [Codeschool](http://www.codeschool.com/)-created web application [Try Git](http://try.github.com/) is a basic course on how to use Git. By simulating a terminal and file explorer, letting the user type all commands by himself and creating a real (like, super-real) Github repository, learning Git is simple and fun with this course.
 
 #### Interactive Guide to Blog Typography
 
-<img src="blogtypography.gif" alt="Interactive Guide to Blog Typography" class="img-shadow-strong img-top">
+![Interactive Guide to Blog Typography](blogtypography.gif)
 
 I have become a fan of the work of [Tommi Kaikkonen](http://www.kaikkonendesign.fi). Not because the work he does would be rocket-science, fancy interaction design, but because his posts and examples are well thought-out and greatly serve their purpose.
 
@@ -27,13 +27,13 @@ His [Interactive Guide to Blog Typography](http://www.kaikkonendesign.fi/typogra
 
 #### How to Fold a Julia Fractal
 
-<img src="julia.gif" alt="How to Fold a Julia Fractal" class="img-shadow-strong img-top">
+![How to Fold a Julia Fractal](julia.gif)
 
 Steven Wittens' article [How to Fold a Julia Fractal](http://acko.net/blog/how-to-fold-a-julia-fractal/) makes math fun. No text book I have seen so far explains complex numbers that visually rich&mdash;and of course, the interactivity provided by the web cannot be beaten by text books either. Somebody put a lot of work into this!
 
 #### Kern Type, Shape Type & Color
 
-<img src="kerntype.gif" alt="Kern Type" class="img-shadow-strong img-top">
+![Kern Type](Kern Type)
 
 [Method of Action](http://method.ac/) is a learning platform still in development. However, as part of their first course, *Design for Analytical Minds*, three games were released upfront: [Kern Type](http://type.method.ac/), [Shape Type](http://shape.method.ac/) and [Color](http://color.method.ac/). They train your eyes to recognize good kerning, harmonical letter shapes and subtle color differences, respectively. My maximum score at Kern Type is 92%, but I bet you can do better! :)
 
