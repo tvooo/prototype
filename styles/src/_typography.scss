@@ -2,19 +2,19 @@ $ff-title: "Amatic SC", sans-serif;
 $ff-serif: "Calluna Regular", "calluna", "Merriweather", Georgia, serif;
 $ff-monospace: "Source Code Pro", monospace;
 
+%paragraph {
+    font-size: 1em;
+    line-height: 1.72em;
+
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    @include font-feature-settings("onum" 1, "pnum" 1);
+}
+
 @include type-boilerplate;
 
 html {
-    font-size: 18px;
+    font-size: 14px;
 }
-
-@media print {
-    html {
-        font-size: 12px;
-    }
-}
-
-
 
 body {
     font-size: 100%;
@@ -22,14 +22,13 @@ body {
     font-family: $ff-serif;
 }
 
-$headings: h1 5em 1.1em, h2 1.91em 1.61em, h3 1.618em 1.61em, h4 1.18em 1.61em;
-$headings: h1 3.4em 1.1em, h2 1.91em 1.61em, h3 1.618em 1.61em, h4 1.18em 1.61em;
+/* HEADINGS */
+
 $headings:
-    h1 2.8em 1.1em,
-    h2 2em 1.61em,
-    h3 1.75em 1.61em,
-    h4 1.25em 1.61em,
-    ".m-header-title" 3.5em 1.61em;
+    h1 2em 1.1em,
+    h2 1.6em 1.4em,
+    h3 1.4em 1.61em,
+    h4 1em 1.61em;
 @each $heading in $headings {
      #{nth($heading, 1)} {
         font-size: nth($heading, 2);
@@ -37,53 +36,50 @@ $headings:
     }
 }
 
+h2, h4 {
+    font-weight: 700;
+}
+
+h1, h3 {
+    font-weight: 400;
+}
+
+h4 {
+    font-style: italic;
+}
+
+h1 {
+    margin-bottom: .5em;
+}
+
+/* PARAGRAPHS & LISTS */
+
 p, li {
-    font-size: 1em;
-    line-height: 1.72em;
-
-    //text-align: justify;
-
-
-
-    font-variant-numeric: oldstyle-nums proportional-nums;
-    @include font-feature-settings("onum" 1, "pnum" 1);
+    @extend %paragraph;
 }
-
-table {
-    @include font-feature-settings("lnum" 1, "tnum" 1);
-}
-
-
-
-
 
 li {
     margin-bottom: 0.4em;
 }
 
-h3, h4, p, ul, ol {
+p, ul, ol {
     margin-bottom: 2em;
 }
 
-h1, h2, h3, h4 {
-    font-weight: 700;
-}
 
-h1 {
-    font-weight: 400;
-    margin-bottom: .5em;
-}
-
-h3, h4 {
-    margin-bottom: .5em;
-}
 
 ul, ol {
-    @include type-list-hanging;
+    @include type-list-indented;
+}
+
+/* TABLES */
+
+table {
+    @include font-feature-settings("lnum" 1, "tnum" 1);
 }
 
 /* Special Blockquotes */
-
+/*
 $mark-top: -.3em;
 $mark-left: -.05em;
 $mark-left: -.02em;
@@ -94,18 +90,17 @@ $mark-symbol: "“";
 $mark-font: "Times New Roman", "Merriweather", Georgia, serif;
 
 %mark {
-        display: block;
-        font-size: $mark-size;
-        content: $mark-symbol;
-        position: absolute;
-        z-index: 10;
-        left: $mark-left;
-        top: $mark-top;
-        font-family: $mark-font;
-    }
+    display: block;
+    font-size: $mark-size;
+    content: $mark-symbol;
+    position: absolute;
+    z-index: 10;
+    left: $mark-left;
+    top: $mark-top;
+    font-family: $mark-font;
+}
 
-// Fancy quotes, need extended markup
-/*blockquote {
+blockquote {
     position: relative;
     overflow: visible;
     .wrapper {
@@ -130,20 +125,20 @@ $mark-font: "Times New Roman", "Merriweather", Georgia, serif;
     }
 }*/
 
+/* QUOTES */
+
 blockquote {
-    position: relative;
-
-        background: $color-quote-bg;
-        padding-top: 2em;
-        padding-bottom: 2em;
-        margin-bottom: 2em;
-
-
+    background: $color-quote-bg;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
 
     p {
         margin-bottom: 0;
     }
 }
+
+/* CODE */
 
 code {
     @extend %type-code;
@@ -161,9 +156,14 @@ pre {
     display: block;
 
     padding: 2em;
-    //padding-bottom: 2em;
     margin-bottom: 2em;
+
+    code {
+        display: block;
+    }
 }
+
+/* LINKS */
 
 a {
     display: inline;

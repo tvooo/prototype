@@ -125,7 +125,7 @@
         @include font-feature-settings("liga", "dlig");
     }
     ul, ol {
-        @extend %type-list-hanging;
+        @include type-list-hanging;
     }
     blockquote {
         @include type-quotemarks-hanging;

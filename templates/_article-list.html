@@ -1,8 +1,17 @@
-    <section class="m-list">
-        <h4>Other Articles</h4>
-        <ul class="m-list-articles">
-            {{#each pages.subpages}}<li>
-                <a href="{{url}}" class="{{#if active}}active{{/if}}"><span class="date">{{meta.Date}}</span><span class="title">{{meta.Title}}</span></a>
-            </li>{{/each}}
-        </ul>
-    </section>
+<ul class="m-list-articles">
+    {{#sortByDate pages.subpages}}
+    {{~#each @sorted}}<li>
+        {{~#equal meta.Type "Link"}}
+            <a href="{{meta.URL}}" target="_blank" class="{{#if active}}active{{/if}}">
+                <span class="date">{{{date meta.Date}}}</span>
+                <span class="title">{{meta.Title}}{{> source}}</span>
+            </a>
+        {{else}}
+            <a href="{{url}}" class="{{#if active}}active{{/if}}">
+                <span class="date">{{{date meta.Date}}}</span>
+                <span class="title">{{meta.Title}}{{> source}}</span>
+            </a>
+        {{/equal}}
+    </li>{{/each}}
+    {{/sortByDate}}
+</ul>

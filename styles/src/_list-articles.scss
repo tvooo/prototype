@@ -1,18 +1,25 @@
 .m-list-articles {
     list-style: none;
+    padding-left: 0;
 
     li {
-        span.date {
-            @include span(3);
-            font-size: 1em;
-            text-align: right;
+        .date {
+            @include span(12);
+            font-size: .8em;
+            text-align: left;
+            font-weight: 400;
         }
         .title {
-            @include span(9);
+            @include span(12);
             font-size: 1.61em;
         }
-        margin-left: 2rem;
-        margin-right: 2rem;
+        .source {
+            float: right;
+            display: none;
+            font-size: 0.6em;
+        }
+        margin-left: 1rem;
+        margin-right: 1rem;
         margin-bottom: 0;
         $padding: .4em;
         font-size: 1em;
@@ -40,5 +47,24 @@
     h4 {
         text-align: center;
         font-weight: 400;
+        margin-bottom: 1em;
     }
+
+    &.m-list--article {
+        margin-top: 8em;
+    }
+
+
+}
+
+hr.style-one {
+    $center: #999;
+    $edge: #ddd;
+    margin-bottom: 4em;
+    border: 0;
+    height: 1px;
+    background: $center;
+    @include background(
+        linear-gradient(left, $edge, $center, $edge)
+    );
 }
