@@ -1,4 +1,4 @@
-rapid
+Proto&Type
 =====
 
-A boilerplate for creating rapid web app prototypes
+Repository for [protoandtype.com](http://www.protoandtype.com/).
