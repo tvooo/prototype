@@ -5,3 +5,4 @@ node_modules
 fonts/
 tmp/
 .DS_Store
+www/

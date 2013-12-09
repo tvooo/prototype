@@ -60,7 +60,7 @@ module.exports = function ( grunt ) {
           }
         },
         options: {
-          domain: "//127.0.0.1:9001/",
+          domain: "//www.protoandtype.com/",
           basePath: "/",
           templates: "templates/",
           content: "content/",
