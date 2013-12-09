@@ -9,7 +9,11 @@
     <title>{{#if meta.Title}}{{meta.Title}} &mdash; {{/if}}Proto&amp;Type</title>
 
     <link rel="stylesheet" href="/styles/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Source+Code+Pro|Amatic+SC:700&subset=latin-ext' rel='stylesheet' type='text/css'>
+    {{#if meta.Code}}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Source+Code+Pro|Amatic+SC:700' rel='stylesheet' type='text/css'>
+    {{else}}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Amatic+SC:700' rel='stylesheet' type='text/css'>
+    {{/if}}
 </head>
 <body>
     <header class="m-header">

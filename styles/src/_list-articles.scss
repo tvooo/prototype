@@ -36,7 +36,11 @@
         }
 
         a {
-            border: 0;display: block;
+            border: 0;
+            display: block;
+            &:hover {
+                color: $color-link;
+            }
         }
     }
 }

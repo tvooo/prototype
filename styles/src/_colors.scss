@@ -1,9 +1,16 @@
 $color-text: #444;
 
 $color-lightgrey: #ddd;
+$color-grey: #bbb;
 
 $color-footer-bg: #444;
 $color-quote-bg: #f0f0f0;
 
 $color-link: #c66;
-$color-link--hover: lighten($color-link, 10%);
+$color-link: #8e222b;
+$color-link: #8e2234;
+$color-link--hover: lighten(#4e2250, 10%);
+//$color-link: #692e6c;
+$color-link--hover: saturate(
+    lighten($color-link, 10%), 20%
+);

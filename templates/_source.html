@@ -1,1 +1,8 @@
-{{~#if meta.Source}}<span class="source" {{#equal meta.Source "Medium"}}style="color: #57ad68;"{{/equal}}{{#equal meta.Source "tvooo"}}style="color: #666666;"{{/equal}}>{{meta.Source}}</span>{{/if}}
+{{!--{{~#if meta.Source}}<span class="source" {{#equal meta.Source "Medium"}}style="color: #57ad68;"{{/equal}}{{#equal meta.Source "tvooo"}}style="color: #666666;"{{/equal}}>{{meta.Source}}</span>{{/if}}--}}
+{{~#if meta.Source}}
+{{#equal meta.Source "Medium"}}
+<span class="source" style="color: white; background: #333332; display:inline-block;width:2em;height:2em; text-align:center" title="This article was released on Medium">M</span>
+{{else}}
+<span class="source" {{#equal meta.Source "tvooo"}}style="color: #666666;"{{/equal}}>{{meta.Source}}</span>
+{{/equal}}
+{{/if}}
