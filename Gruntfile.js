@@ -86,6 +86,7 @@ module.exports = function ( grunt ) {
     grunt.registerTask('css', ['compass:rapid'] );
     grunt.registerTask('js', ['concat:js']);
     grunt.registerTask('default', ['connect', 'watch']);
+    grunt.registerTask('build', ['js', 'css', 'bear']);
 
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-concat');
