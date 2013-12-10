@@ -80,14 +80,16 @@ module.exports = function ( grunt ) {
             }
           ]
         }
-      }
+      },
+      clean: ["www"]
     });
 
     grunt.registerTask('css', ['compass:rapid'] );
     grunt.registerTask('js', ['concat:js']);
     grunt.registerTask('default', ['connect', 'watch']);
-    grunt.registerTask('build', ['js', 'css', 'bear']);
+    grunt.registerTask('build', ['clean', 'js', 'css', 'bear']);
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
