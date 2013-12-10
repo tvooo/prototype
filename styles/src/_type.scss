@@ -98,6 +98,13 @@
     }
 }
 
+@mixin type-quotemarks-none() {
+    p:first-of-type:before, p:last-of-type:after {
+        content: "";
+        display: none;
+    }
+}
+
 %type-code {
     white-space: pre-wrap;
     white-space: -moz-pre-wrap !important;

@@ -1,6 +1,7 @@
 <ul class="m-list-articles">
     {{#sortByDate pages.subpages}}
-    {{~#each @sorted}}<li>
+    {{~#each @sorted}}
+        {{~#equal url ../../permalink}}{{else}}<li>
         {{~#equal meta.Type "Link"}}
             <a href="{{meta.URL}}" target="_blank" class="{{#if active}}active{{/if}}">
                 <span class="date">{{{date meta.Date}}}</span>
@@ -11,6 +12,7 @@
                 <span class="date">{{{date meta.Date}}}</span>
                 <span class="title">{{meta.Title}}{{> source}}</span>
             </a>
+        {{/equal}}
         {{/equal}}
     </li>{{/each}}
     {{/sortByDate}}

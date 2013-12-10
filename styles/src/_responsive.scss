@@ -6,11 +6,6 @@ $query-large: 'screen and (min-width: 769px)';
         font-size: 16px;
     }
 
-    /*h2, h3, h4, p, ul, ol {
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }*/
-
     .m-header-title {
         font-size: 2.5em;
     }
@@ -22,8 +17,6 @@ $query-large: 'screen and (min-width: 769px)';
     $headings:
         h1 2.8em 1.1em,
         h2 2em 1.4em;
-        //h3 1.75em 1.61em;
-        //h4 1.25em 1.61em;
     @each $heading in $headings {
         #{nth($heading, 1)} {
             font-size: nth($heading, 2);

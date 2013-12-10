@@ -7,7 +7,7 @@ Code: true
 
 This small project was born due to a need I have with almost every web project: A very simple grid system.
 
-<a href="http://www.tvooo.de/paws/" target="_blank" class="btn">View Demo</a>
+[View Demo](http://www.tvooo.de/paws/)
 
 I did not study graphic design, so I am not familiar with the complexity a grid system can have. I know some of the simple grid rules for books, I know about the golden ratio, but let's be honest: for most of my web projects, I don't care.
 
@@ -15,7 +15,7 @@ I simply want a plug-and-play grid that stays out of my way, but is flexible eno
 
 ## Along comes Paws
 
-<img src="paws.jpg" alt="Paws sample page" class="img-shadow-strong img-top">
+![Paws sample page](paws.jpg)
 
 [Paws](https://github.com/tvooo/paws) is a *really* simple grid for SASS. Here are all of the features:
 

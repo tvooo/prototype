@@ -33,7 +33,7 @@ Steven Wittens' article [How to Fold a Julia Fractal](http://acko.net/blog/how-t
 
 #### Kern Type, Shape Type & Color
 
-![Kern Type](Kern Type)
+![Kern Type](kerntype.gif)
 
 [Method of Action](http://method.ac/) is a learning platform still in development. However, as part of their first course, *Design for Analytical Minds*, three games were released upfront: [Kern Type](http://type.method.ac/), [Shape Type](http://shape.method.ac/) and [Color](http://color.method.ac/). They train your eyes to recognize good kerning, harmonical letter shapes and subtle color differences, respectively. My maximum score at Kern Type is 92%, but I bet you can do better! :)
 
