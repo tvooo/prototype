@@ -2,15 +2,15 @@
 
 @import "vendor/prism";
 
-@import "_reset";
-@import "_fonts";
-@import "_colors";
+@import "reset";
+@import "fonts";
+@import "colors";
 $max-width: 800px;
-@import "_paws";
-@import "_type";
-@import "_mixins";
+@import "paws";
+@import "type";
+@import "mixins";
 
-@import "_typography";
+@import "typography";
 
 // Modules
 @import "dialog";
