@@ -29,6 +29,9 @@
         &.plain {
             @include box-shadow(none);
         }
+        &.no-shadow {
+            @include box-shadow(none);
+        }
     }
 
     h2, h3, h4 {
